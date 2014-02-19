@@ -3,7 +3,7 @@
   <div class="row sau">
     <div class="col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading">Create a new role</div>
+        <div class="panel-heading">{{i18n 'role.createNew'}}</div>
         <div class="panel-body">
           {{> sauAddroles}}
         </div>
@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading">Attach role</div>
+        <div class="panel-heading">{{i18n 'role.attachRole'}}</div>
         <div class="panel-body">
           {{> sauAffectrole}}
         </div>
@@ -37,14 +37,14 @@
     <div class="form-group">
       <input type="text" class="form-control" name="rolename" placeholder="role">
     </div>
-    <input type="submit" class="btn btn-primary" value="Create">
+    <input type="submit" class="btn btn-primary" value="{{i18n 'button.create'}}">
   </form>
 </template>
 
 <template name="sauAffectrole">
   <form class="form-inline">
     <div class="form-group">
-      <label >attach role</label>
+      <label >{{i18n 'role.attachRole'}}</label>
       <select class="form-control" name="roles">
         {{#each roles}}
         <option value="{{name}}">{{name}}</option>
@@ -52,13 +52,13 @@
       </select> 
     </div>
     <div class="form-group">
-      <label >to user</label>
+      <label >{{i18n 'role.toUser'}}</label>
       <select class="form-control" name="users">
         {{#each users}}
         <option value="{{_id}}">{{username}}</option>
         {{/each}}
       </select>
     </div>
-    <input type="submit" class="btn btn-primary" value="Attach">
+    <input type="submit" class="btn btn-primary" value="{{i18n 'button.attach'}}">
   </form>
 </template>

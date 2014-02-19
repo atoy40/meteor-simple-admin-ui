@@ -13,33 +13,33 @@ Template.simpleAdminUi.settings = function() {
     fields: [
       {
         key: 'username',
-        label: "Username"
+        label: i18n('role.userName')
       },
       {
         key: 'profile.name',
-        label: "Name"
+        label: i18n('role.name')
       },
       {
         key: 'roles',
-        label: "Roles",
+        label: i18n('role.roles'),
         fn: function(value) {
           if (_.isArray(value) && value.length > 0) {
             var roles = _.sortBy(value, function(val) { return val; });
             var html = Template.sauRolesColumn({ roles: roles });
             return new Handlebars.SafeString(html);
           } else {
-            return "no role";
+            return i18n('role.noRole');
           }
         }
       },
       {
         key: 'emails',
-        label: "Addresses",
+        label: i18n('role.addresses'),
         fn: function(value) {
           if (_.isArray(value) && value.length > 0) {
             return _.map(value, function(val) { return val.address; });
           } else {
-            return "no email";
+            return i18n('role.noEmail');
           }
         }
       }
