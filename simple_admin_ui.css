@@ -1,0 +1,17 @@
+.sau .remove-role {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 2px 0px 5px 3px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+
+.sau .remove-role:hover {
+  filter: alpha(opacity=60);
+  opacity: .6;
+}

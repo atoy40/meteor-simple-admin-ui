@@ -1,0 +1,64 @@
+<template name="simpleAdminUi">
+  {{#if isAdmin}}
+  <div class="row sau">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Create a new role</div>
+        <div class="panel-body">
+          {{> sauAddroles}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Attach role</div>
+        <div class="panel-body">
+          {{> sauAffectrole}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row sau">
+    <div class="col-md-12">
+      {{reactiveTable users settings}}
+    </div>
+  </div>
+  {{/if}}
+</template>
+
+<template name="sauRolesColumn">
+  {{#each roles}}
+  <span class="label label-primary">{{this}}<span class="remove-role">&times;</span></span>
+  {{/each}}
+</template>
+
+<template name="sauAddroles">
+  <form class="form-inline">
+    <div class="form-group">
+      <input type="text" class="form-control" name="rolename" placeholder="role">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Create">
+  </form>
+</template>
+
+<template name="sauAffectrole">
+  <form class="form-inline">
+    <div class="form-group">
+      <label >attach role</label>
+      <select class="form-control" name="roles">
+        {{#each roles}}
+        <option value="{{name}}">{{name}}</option>
+        {{/each}}
+      </select> 
+    </div>
+    <div class="form-group">
+      <label >to user</label>
+      <select class="form-control" name="users">
+        {{#each users}}
+        <option value="{{_id}}">{{username}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Attach">
+  </form>
+</template>
