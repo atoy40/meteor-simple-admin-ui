@@ -33,8 +33,8 @@ Template.simpleAdminUi.settings = function() {
         }
       },
       {
-        key: 'emails.0.address',
-        label: "Address",
+        key: 'emails',
+        label: "Addresses",
         fn: function(value) {
           if (_.isArray(value) && value.length > 0) {
             return _.map(value, function(val) { return val.address; });
