@@ -78,6 +78,15 @@ Template.sauAffectRole.events({
   }
 });
 
+Template.sauRolesColumn.roleStyle = function() {
+  if (this == "admin") return "danger";
+  
+  var style = ['default', 'primary', 'success', 'info', 'warning'];
+  var hash = this.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+  
+  return style[Math.abs(hash%5)];
+}
+                                  
 Template.sauRolesColumn.events({
   'click .remove-role': function(e) {
     var role = this;
