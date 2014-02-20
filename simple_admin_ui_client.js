@@ -13,33 +13,33 @@ Template.simpleAdminUi.settings = function() {
     fields: [
       {
         key: 'username',
-        label: i18n('role.userName')
+        label: i18n('sau.role.userName')
       },
       {
         key: 'profile.name',
-        label: i18n('role.name')
+        label: i18n('sau.role.name')
       },
       {
         key: 'roles',
-        label: i18n('role.roles'),
+        label: i18n('sau.role.roles'),
         fn: function(value) {
           if (_.isArray(value) && value.length > 0) {
             var roles = _.sortBy(value, function(val) { return val; });
             var html = Template.sauRolesColumn({ roles: roles });
             return new Handlebars.SafeString(html);
           } else {
-            return i18n('role.noRole');
+            return i18n('sau.role.noRole');
           }
         }
       },
       {
         key: 'emails',
-        label: i18n('role.addresses'),
+        label: i18n('sau.role.addresses'),
         fn: function(value) {
           if (_.isArray(value) && value.length > 0) {
             return _.map(value, function(val) { return val.address; });
           } else {
-            return i18n('role.noEmail');
+            return i18n('sau.role.noEmail');
           }
         }
       }
@@ -48,7 +48,7 @@ Template.simpleAdminUi.settings = function() {
   };
 };
 
-Template.sauAddroles.events({
+Template.sauAddRoles.events({
   'submit form': function(e) {
     e.preventDefault();
 
@@ -60,15 +60,15 @@ Template.sauAddroles.events({
   }
 });
 
-Template.sauAffectrole.roles = function() {
+Template.sauAffectRole.roles = function() {
   return Meteor.roles.find();
 }
 
-Template.sauAffectrole.users = function() {
+Template.sauAffectRole.users = function() {
   return Meteor.users.find();
 }
 
-Template.sauAffectrole.events({
+Template.sauAffectRole.events({
   'submit form': function(e) {
     e.preventDefault();
     Meteor.call('addToRole',

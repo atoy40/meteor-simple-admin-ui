@@ -3,17 +3,17 @@
   <div class="row sau">
     <div class="col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading">{{i18n 'role.createNew'}}</div>
+        <div class="panel-heading">{{i18n 'sau.role.createNew'}}</div>
         <div class="panel-body">
-          {{> sauAddroles}}
+          {{> sauAddRoles}}
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading">{{i18n 'role.attachRole'}}</div>
+        <div class="panel-heading">{{i18n 'sau.role.attachRole'}}</div>
         <div class="panel-body">
-          {{> sauAffectrole}}
+          {{> sauAffectRole}}
         </div>
       </div>
     </div>
@@ -32,19 +32,19 @@
   {{/each}}
 </template>
 
-<template name="sauAddroles">
+<template name="sauAddRoles">
   <form class="form-inline">
     <div class="form-group">
       <input type="text" class="form-control" name="rolename" placeholder="role">
     </div>
-    <input type="submit" class="btn btn-primary" value="{{i18n 'button.create'}}">
+    <input type="submit" class="btn btn-primary" value="{{i18n 'sau.button.create'}}">
   </form>
 </template>
 
-<template name="sauAffectrole">
+<template name="sauAffectRole">
   <form class="form-inline">
     <div class="form-group">
-      <label >{{i18n 'role.attachRole'}}</label>
+      <label >{{i18n 'sau.role.attachRole'}}</label>
       <select class="form-control" name="roles">
         {{#each roles}}
         <option value="{{name}}">{{name}}</option>
@@ -52,13 +52,13 @@
       </select> 
     </div>
     <div class="form-group">
-      <label >{{i18n 'role.toUser'}}</label>
+      <label >{{i18n 'sau.role.toUser'}}</label>
       <select class="form-control" name="users">
         {{#each users}}
         <option value="{{_id}}">{{username}}</option>
         {{/each}}
       </select>
     </div>
-    <input type="submit" class="btn btn-primary" value="{{i18n 'button.attach'}}">
+    <input type="submit" class="btn btn-primary" value="{{i18n 'sau.button.attach'}}">
   </form>
 </template>
