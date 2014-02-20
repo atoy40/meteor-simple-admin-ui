@@ -3,7 +3,7 @@ i18n.map('en', {
     role: {
       createNew : 'Create a new role',
       attachRole : 'Attach role',
-      toUser : 'toUser',
+      toUser : 'to user',
       userName : 'Username',
       userNameLabel : 'username',
       name : 'Name',
