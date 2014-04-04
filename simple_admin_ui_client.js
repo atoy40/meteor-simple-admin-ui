@@ -25,8 +25,9 @@ Template.simpleAdminUi.settings = function() {
         fn: function(value) {
           if (_.isArray(value) && value.length > 0) {
             var roles = _.sortBy(value, function(val) { return val; });
-            var html = Template.sauRolesColumn({ roles: roles });
-            return new Handlebars.SafeString(html);
+            //var html = UI.renderWithData(Template.sauRolesColumn, { roles: roles });
+            var html = Template.sauRolesColumn.extend({data: function () { return { roles: roles }; }})
+            return new Spacebars.SafeString(UI.toHTML(html));
           } else {
             return i18n('sau.role.noRole');
           }
