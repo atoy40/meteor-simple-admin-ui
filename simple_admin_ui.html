@@ -28,7 +28,9 @@
 
 <template name="sauRolesColumn">
   {{#each roles}}
-  <span class="label label-{{roleStyle}}">{{this}}<span class="remove-role">&times;</span></span>
+    {{#with user=.. role=this}}
+    <span class="label label-{{roleStyle}}">{{role}}<span class="remove-role">&times;</span></span>
+    {{/with}}
   {{/each}}
 </template>
 

@@ -22,16 +22,18 @@ Template.simpleAdminUi.settings = function() {
       {
         key: 'roles',
         label: i18n('sau.role.roles'),
-        fn: function(value) {
+        tmpl: Template.sauRolesColumn
+        /*fn: function(value) {
           if (_.isArray(value) && value.length > 0) {
             var roles = _.sortBy(value, function(val) { return val; });
             //var html = UI.renderWithData(Template.sauRolesColumn, { roles: roles });
             var html = Template.sauRolesColumn.extend({data: function () { return { roles: roles }; }})
+            var tmp = UI.renderWithData(html, { roles: roles });
             return new Spacebars.SafeString(UI.toHTML(html));
           } else {
             return i18n('sau.role.noRole');
           }
-        }
+        }*/
       },
       {
         key: 'emails',
@@ -80,18 +82,17 @@ Template.sauAffectRole.events({
 });
 
 Template.sauRolesColumn.roleStyle = function() {
-  if (this == "admin") return "danger";
+  if (this.role == "admin") return "danger";
   
   var style = ['default', 'primary', 'success', 'info', 'warning'];
-  var hash = this.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+  var hash = this.role.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
   
   return style[Math.abs(hash%5)];
 }
                                   
 Template.sauRolesColumn.events({
-  'click .remove-role': function(e) {
-    var role = this;
-    var userid = $(e.currentTarget).closest('tr').attr('user-id');
-    Meteor.call('removeFromRole', userid, role.valueOf());
+  'click .remove-role': function(e) {    
+    if (this.role != "admin" || confirm("Warning You are removing an admin role. Are you sure ?"))
+      Meteor.call('removeFromRole', this.user._id, this.role);
   }
 });
