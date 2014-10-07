@@ -13,7 +13,7 @@ Template.simpleAdminUi.settings = function() {
     fields: [
       {
         key: 'username',
-        label: i18n('sau.role.userName')
+        label: i18n('sau.user.userName')
       },
       {
         key: 'profile.name',

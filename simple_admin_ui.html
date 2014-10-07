@@ -3,6 +3,18 @@
   <div class="row sau">
     <div class="col-md-6">
       <div class="panel panel-default">
+        <div class="panel-heading">{{i18n 'sau.user.createNew'}}</div>
+        <div class="panel-body">
+          {{> sauAddUser}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
+  <div class="row sau">
+    <div class="col-md-6">
+      <div class="panel panel-default">
         <div class="panel-heading">{{i18n 'sau.role.createNew'}}</div>
         <div class="panel-body">
           {{> sauAddRoles}}
@@ -34,6 +46,20 @@
   {{/each}}
 </template>
 
+<template name="sauAddUser">
+  <form class="form-inline">
+    <div class="form-group">
+      <label>{{i18n 'sau.user.userName'}}</label>
+      <input type="text" class="form-control" name="username" placeholder="{{i18n 'sau.user.userName'}}">
+    </div>
+    <div class="form-group">
+      <label>{{i18n 'sau.user.password'}}</label>
+      <input type="password" class="form-control" name="password" placeholder="{{i18n 'sau.user.password'}}">
+    </div>
+    <input type="submit" class="btn btn-primary" value="{{i18n 'sau.button.create'}}">
+  </form>
+</template>
+
 <template name="sauAddRoles">
   <form class="form-inline">
     <div class="form-group">
@@ -46,7 +72,7 @@
 <template name="sauAffectRole">
   <form class="form-inline">
     <div class="form-group">
-      <label >{{i18n 'sau.role.attachRole'}}</label>
+      <label>{{i18n 'sau.role.attachRole'}}</label>
       <select class="form-control" name="roles">
         {{#each roles}}
         <option value="{{name}}">{{name}}</option>
@@ -54,7 +80,7 @@
       </select> 
     </div>
     <div class="form-group">
-      <label >{{i18n 'sau.role.toUser'}}</label>
+      <label>{{i18n 'sau.role.toUser'}}</label>
       <select class="form-control" name="users">
         {{#each users}}
         <option value="{{_id}}">{{username}}</option>

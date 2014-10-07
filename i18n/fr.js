@@ -1,11 +1,15 @@
 i18n.map('fr', {
   sau: {
+    user: {
+      createNew: 'Créer un nouvel utilisateur',
+      userName : 'Utilisateur',
+      userNameLabel : 'utilisateur',
+      password: 'Mot de passe',
+    },
     role: {
       createNew : 'Créer un nouveau rôle',
       attachRole : 'Affecter le rôle',
       toUser : "à l'utilisateur",
-      userName : 'Utilisateur',
-      userNameLabel : 'utilisateur',
       name : 'Nom',
       roles: 'Rôles',
       noRole : 'pas de rôles',

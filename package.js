@@ -1,15 +1,18 @@
 Package.describe({
-  summary: "A simple UI to manage users and roles"
+  summary: "A simple UI to manage users and roles",
+  version: "0.0.1",
+  name: "atoy40:simple-admin-ui",
+  git: "https://github.com/atoy40/meteor-simple-admin-ui.git"
 });
 
-Package.on_use(function (api) {
+Package.onUse(function (api) {
+  api.versionsFrom('METEOR@0.9.0');
   api.use('templating', 'client');
-  api.use('handlebars', 'client');
   api.use('jquery', 'client');
   api.use('underscore', 'client');
-  api.use('reactive-table', 'client');
-  api.use('roles', ['client', 'server']);
-  api.use('just-i18n', 'client');
+  api.use('aslagle:reactive-table', 'client');
+  api.use('alanning:roles', ['client', 'server']);
+  api.use('anti:i18n', 'client');
 
   api.add_files('simple_admin_ui.html', 'client');
   api.add_files('simple_admin_ui_commons.js', ['client', 'server']);
